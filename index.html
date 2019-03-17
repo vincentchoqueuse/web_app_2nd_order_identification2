@@ -117,17 +117,18 @@
                         var allTextLines = allText.split(/\r\n|\n/);
                         var entree =[];
                         var sortie =[];
+                        var data;
                       
                         for (var i = 1; i < allTextLines.length; i++)
                             {
-                            var data = allTextLines[i].split(',');
+                            data = allTextLines[i].split(',');
                             entree.push([parseFloat(data[0]),parseFloat(data[1])]);
                             sortie.push([parseFloat(data[0]),parseFloat(data[2])]);
                             }
                         tmax = parseFloat(data[0]);
                         myChart.series[0].update({data: entree}, false);
                         myChart.series[1].update({data: sortie}, false);
-                        myChart.xAxis[0].update({min: 0,max:tmax}, true);
+                        myChart.xAxis[0].update({min: 0, max:tmax}, true);
                         }
                       });
                });
