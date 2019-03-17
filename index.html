@@ -119,15 +119,13 @@
                         var data;
                         var t;
                       
-                        for (var i = 1; i < allTextLines.length; i++)
+                        for (var i = 0; i < (allTextLines.length-1); i++)
                             {
                             data = allTextLines[i].split(',');
                             t = parseFloat(data[0]);
                             entree.push([t,parseFloat(data[1])]);
                             sortie.push([t,parseFloat(data[2])]);
-                            console.log(t);
                             }
-                        alert(t);
                         myChart.xAxis[0].update({min: 0.0, max: t}, false);
                         myChart.series[0].update({data: entree}, false);
                         myChart.series[1].update({data: sortie}, true);
