@@ -121,8 +121,10 @@
                             entree.push([parseFloat(data[0]),parseFloat(data[1])]);
                             sortie.push([parseFloat(data[0]),parseFloat(data[2])]);
                             }
+                        tmax = parseFloat(data[0]);
                         myChart.series[0].update({data: entree}, false);
-                        myChart.series[1].update({data: sortie}, true);
+                        myChart.series[1].update({data: sortie}, false);
+                        myChart.xAxis[0].update({min: 0,max:tmax}, true);
                         }
                       });
                });
