@@ -15,7 +15,7 @@ system_list.append(system1)
 #system2
 K=-5
 w0=100
-m=0.8
+m=0.75
 system2 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
 system_list.append(system2)
 
