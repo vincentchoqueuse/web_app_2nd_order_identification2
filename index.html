@@ -117,15 +117,16 @@
                         var entree =[];
                         var sortie =[];
                         var data;
+                         var t;
                       
                         for (var i = 1; i < allTextLines.length; i++)
                             {
                             data = allTextLines[i].split(',');
-                            entree.push([parseFloat(data[0]),parseFloat(data[1])]);
-                            sortie.push([parseFloat(data[0]),parseFloat(data[2])]);
+                            t = parseFloat(data[0]);
+                            entree.push([t,parseFloat(data[1])]);
+                            sortie.push([t,parseFloat(data[2])]);
                             }
-                        tmax = parseFloat(data[0]);
-                      alert(tmax);
+                        alert(t);
                         myChart.xAxis[0].update({min: 0.0, max: tmax}, false);
                         myChart.series[0].update({data: entree}, false);
                         myChart.series[1].update({data: sortie}, true);
