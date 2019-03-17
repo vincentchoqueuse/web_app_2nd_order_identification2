@@ -127,7 +127,7 @@
                             sortie.push([t,parseFloat(data[2])]);
                             }
                         alert(t);
-                        myChart.xAxis[0].update({min: 0.0, max: tmax}, false);
+                        myChart.xAxis[0].update({min: 0.0, max: t}, false);
                         myChart.series[0].update({data: entree}, false);
                         myChart.series[1].update({data: sortie}, true);
                         }
