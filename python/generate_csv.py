@@ -15,7 +15,7 @@ system_list.append(system1)
 #system2
 K=-5
 w0=100
-m=0.9
+m=0.8
 system2 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
 system_list.append(system2)
 
@@ -50,7 +50,7 @@ system_list.append(system6)
 for indice in range(len(system_list)):
     E = E_list[indice]
     system=system_list[indice]
-    t,s=system.step()
+    t,s=system.step(N=500)
     e = E*np.ones(len(t))
     filename="../data/data{}.csv".format(indice)
     header="t, e, s"
