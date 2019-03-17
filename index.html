@@ -88,9 +88,8 @@
                        series: {marker: {enabled: false}}
                        },
                    title: {text: ''},
-                   xAxis: {title: {text: "temps (s)"},type: "linear",},
-                   yAxis: [{title:{text:"sortie"},type: "linear"},
-                           ],
+                   xAxis: [{title: {text: "temps (s)"},type: "linear",}],
+                   yAxis: [{title:{text:"sortie"},type: "linear"},],
                    series: [{
                             animation: false,
                             enableMouseTracking: true,
@@ -126,7 +125,7 @@
                             sortie.push([parseFloat(data[0]),parseFloat(data[2])]);
                             }
                         tmax = parseFloat(data[0]);
-                        //myChart.xAxis[0].update({min: 0, max: tmax}, false);
+                        myChart.xAxis[0].update({min: 0, max: tmax}, false);
                         myChart.series[0].update({data: entree}, false);
                         myChart.series[1].update({data: sortie}, true);
                         }
