@@ -117,7 +117,7 @@
                         var entree =[];
                         var sortie =[];
                         var data;
-                         var t;
+                        var t;
                       
                         for (var i = 1; i < allTextLines.length; i++)
                             {
@@ -125,6 +125,7 @@
                             t = parseFloat(data[0]);
                             entree.push([t,parseFloat(data[1])]);
                             sortie.push([t,parseFloat(data[2])]);
+                            console.log(t);
                             }
                         alert(t);
                         myChart.xAxis[0].update({min: 0.0, max: t}, false);
