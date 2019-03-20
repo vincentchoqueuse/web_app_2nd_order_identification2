@@ -41,10 +41,10 @@ system5 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
 system_list.append(system5)
 
 #system6
-K=-10
+Tmax=10
 w0=1000
 m=2
-system6 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
+system6 = signal.lti([2*m*Tmax/w0,0], [(1/(w0**2)),2*m/w0,1])
 system_list.append(system6)
 
 for indice in range(len(system_list)):
