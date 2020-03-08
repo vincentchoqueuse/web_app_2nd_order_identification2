@@ -1,58 +1,58 @@
+from ENIB_lib import *
 import numpy as np
-from scipy import signal
-import matplotlib.pyplot as plt
 
-system_list=[]
-E_list=[1,4,10,3,-2,1]
+#system
+sys = Notch(2,0.9,100)
+t,s = sys.step(T=np.linspace(0,0.15,1000))
+export_step("../data/data0.csv",t,s)
 
-# system1
-K=2
-w0=10000
-m=0.5
-system1 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
-system_list.append(system1)
-
-#system2
-K=-5
-w0=100
-m=0.75
-system2 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
-system_list.append(system2)
-
-#system3
-K=0.2
-w0=300
-m=0.05
-system3 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
-system_list.append(system3)
-
-#system4
-K=2
-wc=1000
-m=0.1
-system4 = signal.lti([K], [1/wc,1])
-system_list.append(system4)
-
-#system5
-K=-10
-w0=2000
-m=0.7
-system5 = signal.lti([K], [(1/(w0**2)),2*m/w0,1])
-system_list.append(system5)
+#system
+sys = BP(-5,4,200)
+t,s = sys.step(T=np.linspace(0,0.2,1000))
+export_step("../data/data1.csv",t,s)
 
 #system6
-Tmax=10
-w0=1000
-m=2
-system6 = signal.lti([2*m*Tmax/w0,0], [(1/(w0**2)),2*m/w0,1])
-system_list.append(system6)
+sys = BP(0.5,0.25,2000)
+t,s = sys.step(T=np.linspace(0,0.015,1000))
+export_step("../data/data2.csv",t,s)
 
-for indice in range(len(system_list)):
-    E = E_list[indice]
-    system=system_list[indice]
-    t,s=system.step(N=500)
-    e = E*np.ones(len(t))
-    filename="../data/data{}.csv".format(indice)
-    header="t, e, s"
-    data=np.transpose([t,e,E*s])
-    np.savetxt(filename,data,header=header, delimiter=",",comments="")
+#system5
+sys = HP(4,0.1,100)
+t,s = sys.step(T=np.linspace(0,0.6,1000))
+export_step("../data/data3.csv",t,s)
+
+# system1
+sys = LP(-2,0.2,1000)
+t,s = sys.step(T=np.linspace(0,0.06,1000))
+export_step("../data/data4.csv",t,s)
+
+#system2
+sys = LP(10,2,100)
+t,s = sys.step(T=np.linspace(0,0.25,1000))
+export_step("../data/data5.csv",t,s)
+
+#system4
+sys = HP(10,2,100)
+t,s = sys.step(T=np.linspace(0,0.15,1000))
+export_step("../data/data6.csv",t,s)
+
+#system7
+sys = Notch(10,5,100)
+t,s = sys.step(T=np.linspace(0,0.6,1000))
+export_step("../data/data7.csv",t,s)
+
+#system7
+sys = BP(-5,1,100)
+t,s = sys.step(T=np.linspace(0,0.07,1000))
+export_step("../data/data8.csv",t,s)
+
+#system3
+sys = LP(-1,0.8,500)
+t,s = sys.step(T=np.linspace(0,0.016,1000))
+export_step("../data/data9.csv",t,s)
+
+#system7
+sys = Notch(1,0.05,1000)
+t,s = sys.step(T=np.linspace(0,0.12,1000))
+export_step("../data/data10.csv",t,s)
+
